@@ -94,7 +94,6 @@ public class Main {
 				timeOffset+=10;
 			if (steps>=140 && steps %2==0)
 				timeOffset++;
-	//			timeOffset=100;
 			if (timeOffset>=115)
 				timeOffset=115;
 			System.out.println("Total sleep time = "+ (sleepPeriod-timeOffset) + " ,Steps: "+steps + "---- time offset: "+ timeOffset );
