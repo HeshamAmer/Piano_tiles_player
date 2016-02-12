@@ -83,19 +83,24 @@ public class Main {
 	}
 	static int steps=0;
 	public static char GetChar(int Red, int Green, int Blue, int idx) throws InterruptedException {
-		int sleepPeriod=200;
+		int sleepPeriod=225;
 		
 		if (Red == 17 && Green == 17 && Blue == 17) {
 			steps++;
 			
-			if (steps>=85)
-				steps++;
-			if (steps>=140)
-				steps+=2;
-			System.out.println("Steps: "+steps + "---- time offset: "+ timeOffset);
+			if (steps==100)
+				timeOffset+=10;
+			if (steps==120)
+				timeOffset+=10;
+			if (steps>=140 && steps %2==0)
+				timeOffset++;
+	//			timeOffset=100;
+			if (timeOffset>=115)
+				timeOffset=115;
+			System.out.println("Total sleep time = "+ (sleepPeriod-timeOffset) + " ,Steps: "+steps + "---- time offset: "+ timeOffset );
 			if (timeOffset<sleepPeriod && steps%2==0)			
 				timeOffset++;	
-			
+
 			if (idx == 0){				
 				myRobot.keyPress(KeyEvent.VK_A);
 				
